@@ -34,7 +34,7 @@ todo_schema = ToDoSchema()
 todos_schema = ToDoSchema(many=True)
 
 
-@app.route('/todo/add', methods=['POST'])
+@app.route('/todo', methods=['POST'])
 def create_todo():
     title = request.json['title']
     description = request.json['description']
@@ -45,20 +45,20 @@ def create_todo():
     return todo_schema.jsonify(todo)
 
 
-@app.route('/todos', methods=['GET'])
+@app.route('/todo', methods=['GET'])
 def get_all_todos():
     todos = ToDo.query.all()
     response = todos_schema.dump(todos)
     return jsonify(response)
 
 
-@app.route('/todos/<id>', methods=['GET'])
+@app.route('/todo/<id>', methods=['GET'])
 def get_todo(id):
     todo = ToDo.query.get(id)
     return todo_schema.jsonify(todo)
 
 
-@app.route('/todo/update/<id>', methods=['PUT'])
+@app.route('/todo/<id>', methods=['PUT'])
 def update_todo(id):
     todo = ToDo.query.get(id)
 
@@ -72,10 +72,11 @@ def update_todo(id):
     return todo_schema.jsonify(todo)
 
 
-@app.route('/todo/delete/<id>', methods=['DELETE'])
+@app.route('/todo/<id>', methods=['DELETE'])
 def delete_todo(id):
     todo = ToDo.query.get(id)
     db.session.delete(todo)
+    db.session.commit()
     return jsonify({'message': 'The todo of id: '+id+' is deleted'})
 
 
