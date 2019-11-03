@@ -1,0 +1,6 @@
+{
+  "python.pythonPath": "C:\\Users\\isa\\.virtualenvs\\flask-todo-api-d4xRl7HS\\Scripts\\python.exe",
+  "python.linting.pylintEnabled": false,
+  "python.linting.flake8Enabled": true,
+  "python.linting.enabled": true
+}
