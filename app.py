@@ -25,13 +25,13 @@ class ToDo(db.Model):
         self.description = description
 
 
-class ProductSchema(ma.Schema):
+class ToDoSchema(ma.Schema):
     class Meta:
         fields = ('id', 'title', 'description')
 
 
-todo_schema = ProductSchema()
-todos_schema = ProductSchema(many=True)
+todo_schema = ToDoSchema()
+todos_schema = ToDoSchema(many=True)
 
 
 @app.route('/todo/add', methods=['POST'])
