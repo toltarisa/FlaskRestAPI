@@ -1,3 +1,2 @@
-Flask rest api tutorial for medium
+Basic Flask rest api example with SQLite
 
-https://medium.com/@isatoltar/flask-ile-rest-api-geli%C5%9Ftirelim-ff397e7677b
